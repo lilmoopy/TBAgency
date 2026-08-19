@@ -21,7 +21,7 @@ export default function ProudPartners() {
 
         <ul className="mt-12 flex flex-wrap items-center justify-center gap-8 sm:gap-12">
           {partners.map((partner) => (
-            <li key={partner.slug}>
+            <li key={partner.slug} className="group relative">
               {partner.logo ? (
                 <div
                   className={`relative h-24 w-24 overflow-hidden rounded-full sm:h-28 sm:w-28 ${
@@ -43,11 +43,18 @@ export default function ProudPartners() {
               ) : (
                 <div
                   className="flex h-24 w-24 items-center justify-center rounded-full border border-border bg-surface sm:h-28 sm:w-28"
-                  aria-label={`${partner.name} logo`}
+                  aria-label={partner.name ? `${partner.name} logo` : "Partner logo"}
                 >
-                  <span className="sr-only">{partner.name}</span>
+                  {partner.name ? (
+                    <span className="sr-only">{partner.name}</span>
+                  ) : null}
                 </div>
               )}
+              {partner.name ? (
+                <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-3 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
+                  {partner.name}
+                </span>
+              ) : null}
             </li>
           ))}
         </ul>
