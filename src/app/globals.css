@@ -264,8 +264,35 @@ html[data-theme="midnight-gold"] {
   color-scheme: dark;
 }
 
+html {
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(
+      90% 55% at 50% -8%,
+      color-mix(in oklab, var(--color-accent) 14%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      55% 45% at 0% 100%,
+      color-mix(in oklab, var(--color-surface-muted) 70%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(
+      50% 40% at 100% 85%,
+      color-mix(in oklab, var(--color-accent) 10%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      120% 80% at 50% 50%,
+      transparent 55%,
+      color-mix(in oklab, var(--color-foreground) 5%, transparent) 100%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
 body {
-  background: var(--color-background);
+  background: transparent;
   color: var(--color-foreground);
   font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

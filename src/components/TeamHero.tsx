@@ -1,12 +1,5 @@
 import Image from "next/image";
 
-const stats = [
-  "3+ Years of Digital Experience",
-  "London to Chicago",
-  "Personal Partnership",
-  "Smart Execution",
-];
-
 export default function TeamHero() {
   return (
     <section className="relative px-4 pb-16 pt-36 sm:px-6 sm:pt-44">
@@ -16,11 +9,6 @@ export default function TeamHero() {
             <h1 className="max-w-xl text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
               The Growth Agency Built Around Your Business
             </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-strong sm:text-xl">
-              From London to Chicago, we bring a personal touch to global scale.
-              We partner with brands across industries who need speed, agility,
-              and smart execution.
-            </p>
           </div>
 
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface-muted">
@@ -36,14 +24,12 @@ export default function TeamHero() {
         </div>
 
         <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat) => (
+          {Array.from({ length: 4 }).map((_, index) => (
             <li
-              key={stat}
-              className="rounded-3xl border border-border bg-surface px-6 py-8 text-center"
+              key={index}
+              className="flex min-h-[7.5rem] items-center justify-center rounded-3xl border border-border bg-surface px-6 py-8"
             >
-              <p className="text-sm font-semibold leading-snug tracking-tight text-foreground sm:text-base">
-                {stat}
-              </p>
+              <div className="h-4 w-24 rounded-full bg-hover" />
             </li>
           ))}
         </ul>

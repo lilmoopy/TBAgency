@@ -32,7 +32,7 @@ export default function ProudPartners() {
                 >
                   <Image
                     src={partner.logo}
-                    alt={`${partner.name} logo`}
+                    alt={partner.name ? `${partner.name} logo` : "Partner logo"}
                     fill
                     sizes="(max-width: 640px) 96px, 112px"
                     className={

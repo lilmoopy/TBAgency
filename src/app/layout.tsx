@@ -53,7 +53,7 @@ export default function RootLayout({
       <head>
         <ThemeScript />
       </head>
-      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+      <body className="flex min-h-full flex-col font-sans text-foreground">
         <ThemeProvider>
           {children}
           <ChatWidget />

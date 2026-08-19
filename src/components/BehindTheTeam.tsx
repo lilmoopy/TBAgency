@@ -1,15 +1,15 @@
 const members = [
   {
     name: "Ben Meli",
-    handle: "Mogger",
+    handle: "",
     initials: "BM",
-    bio: "Aspiring Firefighter, God Following, Kills the 2s at Tyler concerts. Incredible marketer, loves getting work done, going to the gym, and big believer in humanity.",
+    bio: "",
   },
   {
     name: "Thomas Lucchesi",
-    handle: "FullStackMaxxer",
+    handle: "",
     initials: "TL",
-    bio: "10 years of coding experience. Started as a kid at 15 making Minecraft plugins and posting Java tutorials on YouTube.",
+    bio: "",
   },
 ];
 
@@ -43,12 +43,23 @@ export default function BehindTheTeam() {
               <h3 className="mt-6 text-xl font-semibold tracking-tight text-foreground">
                 {member.name}
               </h3>
-              <p className="mt-1 text-xs font-mono uppercase tracking-[0.2em] text-muted">
-                {member.handle}
-              </p>
-              <p className="mt-5 max-w-sm text-base leading-relaxed text-muted-strong">
-                {member.bio}
-              </p>
+              {member.handle ? (
+                <p className="mt-1 text-xs font-mono uppercase tracking-[0.2em] text-muted">
+                  {member.handle}
+                </p>
+              ) : (
+                <div className="mt-2 h-3 w-16 rounded-full bg-hover" />
+              )}
+              {member.bio ? (
+                <p className="mt-5 max-w-sm text-base leading-relaxed text-muted-strong">
+                  {member.bio}
+                </p>
+              ) : (
+                <div className="mt-6 w-full max-w-sm space-y-2">
+                  <div className="mx-auto h-3 w-full rounded-full bg-hover" />
+                  <div className="mx-auto h-3 w-5/6 rounded-full bg-hover" />
+                </div>
+              )}
             </li>
           ))}
         </ul>

@@ -5,7 +5,6 @@ import CreativeThatCaptures from "@/components/CreativeThatCaptures";
 import DeliveringResults from "@/components/DeliveringResults";
 import DontFallBehind from "@/components/DontFallBehind";
 import Footer from "@/components/Footer";
-import FullStackServices from "@/components/FullStackServices";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import OrganizationSchema from "@/components/OrganizationSchema";
@@ -27,7 +26,6 @@ export default function Home() {
       <main>
         <Hero />
         <ProudPartners />
-        <FullStackServices />
         <BuiltToConvert />
         <CreativeThatCaptures />
         <DeliveringResults />

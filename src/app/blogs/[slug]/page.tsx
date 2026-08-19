@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return createMetadata({
-    title: post.title,
-    description: post.excerpt,
+    title: post.title || "Article",
+    description: post.excerpt || undefined,
     path: `/blogs/${slug}`,
     image: post.image,
   });
@@ -42,6 +42,8 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const meta = [post.date, post.readTime].filter(Boolean).join(" · ");
+
   return (
     <>
       <Navbar />
@@ -54,28 +56,36 @@ export default async function BlogPostPage({ params }: Props) {
             ← Back to blog
           </Link>
 
-          <p className="mt-8 text-xs font-mono uppercase tracking-[0.2em] text-muted">
-            {post.category}
-          </p>
-          <h1 className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
-            {post.title}
-          </h1>
-          <p className="mt-4 text-sm text-faint">
-            {post.date} · {post.readTime}
-          </p>
-          <p className="mt-8 text-lg leading-relaxed text-muted-strong">
-            {post.excerpt}
-          </p>
-          <p className="mt-6 text-base leading-relaxed text-body">
-            Full article coming soon. In the meantime,{" "}
-            <Link
-              href="/contact"
-              className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-            >
-              book a call
-            </Link>{" "}
-            to talk through how this applies to your brand.
-          </p>
+          {post.category ? (
+            <p className="mt-8 text-xs font-mono uppercase tracking-[0.2em] text-muted">
+              {post.category}
+            </p>
+          ) : (
+            <div className="mt-8 h-3 w-20 rounded-full bg-hover" />
+          )}
+          {post.title ? (
+            <h1 className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
+              {post.title}
+            </h1>
+          ) : (
+            <div className="mt-5 h-9 w-64 rounded-full bg-hover" />
+          )}
+          {meta ? (
+            <p className="mt-4 text-sm text-faint">{meta}</p>
+          ) : (
+            <div className="mt-4 h-3 w-32 rounded-full bg-hover" />
+          )}
+          {post.excerpt ? (
+            <p className="mt-8 text-lg leading-relaxed text-muted-strong">
+              {post.excerpt}
+            </p>
+          ) : (
+            <div className="mt-8 space-y-3">
+              <div className="h-4 w-full rounded-full bg-hover" />
+              <div className="h-4 w-11/12 rounded-full bg-hover" />
+              <div className="h-4 w-3/4 rounded-full bg-hover" />
+            </div>
+          )}
         </article>
       </main>
       <Footer />

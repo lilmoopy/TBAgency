@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import MobileNav from "@/components/MobileNav";
-import ProfileMenu from "@/components/ProfileMenu";
 import ServicesDropdown from "@/components/ServicesDropdown";
 import ThemeToggle from "@/components/ThemeToggle";
 import { navLinks } from "@/lib/navigation";
@@ -18,7 +17,6 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2 sm:hidden">
             <ThemeToggle />
-            <ProfileMenu />
             <MobileNav />
           </div>
         </div>
@@ -42,12 +40,17 @@ export default function Navbar() {
         <div className="hidden items-center gap-2 sm:flex">
           <ThemeToggle />
           <Link
+            href="/login"
+            className="shrink-0 rounded-lg px-4 py-2 text-sm font-medium text-nav transition-colors hover:bg-hover hover:text-foreground"
+          >
+            Login
+          </Link>
+          <Link
             href="/contact"
             className="shrink-0 rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover"
           >
             Let&apos;s Talk
           </Link>
-          <ProfileMenu />
         </div>
       </nav>
     </header>

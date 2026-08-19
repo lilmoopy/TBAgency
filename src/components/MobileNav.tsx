@@ -119,7 +119,7 @@ export default function MobileNav() {
                     <ul className="border-t border-border bg-background/50">
                       <li>
                         <Link
-                          href="/#services"
+                          href="/pricing"
                           onClick={closeMenu}
                           className="block border-b border-border px-4 py-3 pl-6 text-sm font-semibold text-foreground transition-colors duration-200 ease-out hover:bg-hover"
                         >
@@ -142,7 +142,7 @@ export default function MobileNav() {
                 </li>
 
                 {navLinks.map((link) => (
-                  <li key={link.label} className="border-b border-border last:border-b-0">
+                  <li key={link.label} className="border-b border-border">
                     <Link
                       href={link.href}
                       onClick={closeMenu}
@@ -152,6 +152,16 @@ export default function MobileNav() {
                     </Link>
                   </li>
                 ))}
+
+                <li>
+                  <Link
+                    href="/login"
+                    onClick={closeMenu}
+                    className="block px-4 py-3 text-sm font-medium text-nav transition-colors duration-200 ease-out hover:bg-hover hover:text-foreground"
+                  >
+                    Login
+                  </Link>
+                </li>
               </ul>
 
               <div className="border-t border-border p-4">

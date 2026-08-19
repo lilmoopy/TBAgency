@@ -69,7 +69,7 @@ export default function ServicesDropdown() {
         <div className="overflow-hidden rounded-xl border border-border bg-surface py-1 shadow-lg shadow-black/5">
           <div className="border-b border-border px-4 py-3">
             <Link
-              href="/#services"
+              href="/pricing"
               onClick={() => setPinned(false)}
               className="text-sm font-semibold text-foreground transition-colors duration-200 ease-out hover:text-body"
             >

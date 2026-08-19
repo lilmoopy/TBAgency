@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return createMetadata({
-    title: `${study.name} — Case Study`,
-    description: study.excerpt,
+    title: study.name || "Case Study",
+    description: study.excerpt || undefined,
     path: `/case-studies/${slug}`,
     noIndex: true,
     image: study.image,
@@ -55,38 +55,51 @@ export default async function CaseStudyPage({ params }: Props) {
             ← Back to case studies
           </Link>
 
-          <p className="mt-8 text-xs font-mono uppercase tracking-[0.2em] text-muted">
-            {study.industry}
-          </p>
-          <h1 className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
-            {study.name}
-          </h1>
+          {study.industry ? (
+            <p className="mt-8 text-xs font-mono uppercase tracking-[0.2em] text-muted">
+              {study.industry}
+            </p>
+          ) : (
+            <div className="mt-8 h-3 w-20 rounded-full bg-hover" />
+          )}
+          {study.name ? (
+            <h1 className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
+              {study.name}
+            </h1>
+          ) : (
+            <div className="mt-5 h-9 w-48 rounded-full bg-hover" />
+          )}
 
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {study.services.map((service) => (
-              <li
-                key={service}
-                className="rounded-full bg-hover px-3 py-1 text-xs font-medium text-body"
-              >
-                {service}
-              </li>
-            ))}
-          </ul>
+          {study.services.length > 0 ? (
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {study.services.map((service, index) => (
+                <li
+                  key={`${service}-${index}`}
+                  className="rounded-full bg-hover px-3 py-1 text-xs font-medium text-body"
+                >
+                  {service}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="mt-6 flex gap-2">
+              <div className="h-6 w-16 rounded-full bg-hover" />
+              <div className="h-6 w-20 rounded-full bg-hover" />
+              <div className="h-6 w-14 rounded-full bg-hover" />
+            </div>
+          )}
 
-          <p className="mt-8 text-lg leading-relaxed text-muted-strong">
-            {study.excerpt}
-          </p>
-
-          <p className="mt-6 text-base leading-relaxed text-body">
-            Full case study coming soon. Want results like this for your brand?{" "}
-            <Link
-              href="/contact"
-              className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-            >
-              Book a discovery call
-            </Link>
-            .
-          </p>
+          {study.excerpt ? (
+            <p className="mt-8 text-lg leading-relaxed text-muted-strong">
+              {study.excerpt}
+            </p>
+          ) : (
+            <div className="mt-8 space-y-3">
+              <div className="h-4 w-full rounded-full bg-hover" />
+              <div className="h-4 w-11/12 rounded-full bg-hover" />
+              <div className="h-4 w-3/4 rounded-full bg-hover" />
+            </div>
+          )}
         </article>
       </main>
       <Footer />
