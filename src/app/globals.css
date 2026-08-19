@@ -1,26 +1,331 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@property --color-background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5f5f7;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+@property --color-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --color-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #71717a;
+}
+
+@property --color-muted-strong {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #52525b;
+}
+
+@property --color-body {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #3f3f46;
+}
+
+@property --color-faint {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a1a1aa;
+}
+
+@property --color-surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --color-surface-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e4e4e7;
+}
+
+@property --color-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e4e4e7;
+}
+
+@property --color-border-subtle {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #000000;
+}
+
+@property --color-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #09090b;
+}
+
+@property --color-accent-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --color-accent-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --color-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4f4f5;
+}
+
+@property --color-nav {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #52525b;
+}
+
+@property --color-input-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e4e4e7;
+}
+
+@property --color-input-focus-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a1a1aa;
+}
+
+@theme {
+  --color-background: #f5f5f7;
+  --color-foreground: #18181b;
+  --color-muted: #71717a;
+  --color-muted-strong: #52525b;
+  --color-body: #3f3f46;
+  --color-faint: #a1a1aa;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e4e4e7;
+  --color-border: rgb(228 228 231 / 0.8);
+  --color-border-subtle: rgb(0 0 0 / 0.05);
+  --color-accent: #09090b;
+  --color-accent-hover: #18181b;
+  --color-accent-foreground: #ffffff;
+  --color-hover: #f4f4f5;
+  --color-nav: #52525b;
+  --color-input-border: #e4e4e7;
+  --color-input-focus-border: #a1a1aa;
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer theme {
+  html[data-theme="light"] {
+    --color-background: #f5f5f7;
+    --color-foreground: #18181b;
+    --color-muted: #71717a;
+    --color-muted-strong: #52525b;
+    --color-body: #3f3f46;
+    --color-faint: #a1a1aa;
+    --color-surface: #ffffff;
+    --color-surface-muted: #e4e4e7;
+    --color-border: rgb(228 228 231 / 0.8);
+    --color-border-subtle: rgb(0 0 0 / 0.05);
+    --color-accent: #09090b;
+    --color-accent-hover: #18181b;
+    --color-accent-foreground: #ffffff;
+    --color-hover: #f4f4f5;
+    --color-nav: #52525b;
+    --color-input-border: #e4e4e7;
+    --color-input-focus-border: #a1a1aa;
+  }
+
+  html[data-theme="dark"] {
+    --color-background: #09090b;
+    --color-foreground: #fafafa;
+    --color-muted: #a1a1aa;
+    --color-muted-strong: #d4d4d8;
+    --color-body: #e4e4e7;
+    --color-faint: #71717a;
+    --color-surface: #18181b;
+    --color-surface-muted: #27272a;
+    --color-border: rgb(63 63 70 / 0.8);
+    --color-border-subtle: rgb(255 255 255 / 0.08);
+    --color-accent: #fafafa;
+    --color-accent-hover: #e4e4e7;
+    --color-accent-foreground: #09090b;
+    --color-hover: #27272a;
+    --color-nav: #d4d4d8;
+    --color-input-border: #3f3f46;
+    --color-input-focus-border: #71717a;
+  }
+
+  html[data-theme="navy"] {
+    --color-background: #0b1c33;
+    --color-foreground: #e8eef6;
+    --color-muted: #9bb0c9;
+    --color-muted-strong: #c5d4e6;
+    --color-body: #d7e2ef;
+    --color-faint: #6e849c;
+    --color-surface: #132a4a;
+    --color-surface-muted: #1b385c;
+    --color-border: rgb(212 175 119 / 0.28);
+    --color-border-subtle: rgb(232 238 246 / 0.08);
+    --color-accent: #d4af77;
+    --color-accent-hover: #e4c792;
+    --color-accent-foreground: #0b1c33;
+    --color-hover: #1b385c;
+    --color-nav: #c5d4e6;
+    --color-input-border: #2a4a70;
+    --color-input-focus-border: #9bb0c9;
+  }
+
+  html[data-theme="midnight-gold"] {
+    --color-background: #0a0a0a;
+    --color-foreground: #f5f0e6;
+    --color-muted: #c4b896;
+    --color-muted-strong: #e6dcc0;
+    --color-body: #ece4d0;
+    --color-faint: #8a7e5c;
+    --color-surface: #161616;
+    --color-surface-muted: #222222;
+    --color-border: rgb(212 175 55 / 0.32);
+    --color-border-subtle: rgb(245 240 230 / 0.08);
+    --color-accent: #d4af37;
+    --color-accent-hover: #e4c45a;
+    --color-accent-foreground: #1a1404;
+    --color-hover: #222222;
+    --color-nav: #e6dcc0;
+    --color-input-border: #3a3a30;
+    --color-input-focus-border: #8a7e5c;
+  }
+
+  html[data-theme="champagne"] {
+    --color-background: #f6edd9;
+    --color-foreground: #3f2e1e;
+    --color-muted: #8a7354;
+    --color-muted-strong: #6b5340;
+    --color-body: #5c4634;
+    --color-faint: #b7a078;
+    --color-surface: #fff8ea;
+    --color-surface-muted: #eadfc7;
+    --color-border: rgb(196 170 120 / 0.55);
+    --color-border-subtle: rgb(63 46 30 / 0.08);
+    --color-accent: #b45309;
+    --color-accent-hover: #92400e;
+    --color-accent-foreground: #fff8ea;
+    --color-hover: #efe4cc;
+    --color-nav: #6b5340;
+    --color-input-border: #e0d0ae;
+    --color-input-focus-border: #b7a078;
   }
 }
 
+html.theme-ready {
+  transition:
+    --color-background 420ms ease,
+    --color-foreground 420ms ease,
+    --color-muted 420ms ease,
+    --color-muted-strong 420ms ease,
+    --color-body 420ms ease,
+    --color-faint 420ms ease,
+    --color-surface 420ms ease,
+    --color-surface-muted 420ms ease,
+    --color-border 420ms ease,
+    --color-border-subtle 420ms ease,
+    --color-accent 420ms ease,
+    --color-accent-hover 420ms ease,
+    --color-accent-foreground 420ms ease,
+    --color-hover 420ms ease,
+    --color-nav 420ms ease,
+    --color-input-border 420ms ease,
+    --color-input-focus-border 420ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-ready {
+    transition: none;
+  }
+}
+
+html[data-theme="light"],
+html[data-theme="champagne"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"],
+html[data-theme="navy"],
+html[data-theme="midnight-gold"] {
+  color-scheme: dark;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.theme-menu {
+  animation: theme-menu-in 180ms ease-out;
+}
+
+@keyframes theme-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-menu {
+    animation: none;
+  }
+}
+
+@keyframes hero-video-scroll {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.hero-video-scroll {
+  animation: hero-video-scroll 28s linear infinite;
+}
+
+@keyframes built-to-convert-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.built-to-convert-scroll {
+  animation: built-to-convert-scroll 40s linear infinite;
+}
+
+@keyframes creative-that-captures-scroll {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.creative-that-captures-scroll {
+  animation: creative-that-captures-scroll 40s linear infinite;
 }
