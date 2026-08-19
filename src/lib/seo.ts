@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "TB Agency",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tbagency.com",
+  platformUrl: "https://platform.tbagency.co",
   defaultTitle:
     "TB Agency | Full-Stack Growth Marketing for Ecommerce Brands",
   description:
     "TB Agency is a growth agency for ecommerce brands — paid ads, influencer, creative, email/SMS, and customer support from London to Chicago.",
-  ogImage: "/tb-agency-logo.png",
+  ogImage: "/tba-logo-extended.png",
 } as const;
 
 type CreateMetadataOptions = {
@@ -68,7 +69,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}${siteConfig.ogImage}`,
+    logo: `${siteConfig.url}/tba-logo-short.png`,
     description: siteConfig.description,
   };
 }
@@ -84,7 +85,7 @@ export function websiteJsonLd() {
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}${siteConfig.ogImage}`,
+        url: `${siteConfig.url}/tba-logo-short.png`,
       },
     },
   };

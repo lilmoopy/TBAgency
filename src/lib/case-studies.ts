@@ -49,7 +49,11 @@ const partnerLogos: Partial<
 > = {
   coldchain3pl: { src: "/partners/coldchain3pl-favicon.png" },
   "fit-bagel": { src: "/partners/fit-bagel.png", contained: true },
+  "crazy-croc": { src: "/partners/crazy-croc.png", contained: true },
   easylunches: { src: "/partners/easylunches.png" },
+  "summit-mechanical-solutions": {
+    src: "/partners/summit-mechanical-solutions.png",
+  },
   endlessmarket: { src: "/partners/endless-market.png", contained: true },
   "northshore-canine-academy": {
     src: "/partners/northshore-canine-academy.png",

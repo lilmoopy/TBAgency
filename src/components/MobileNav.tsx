@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navLinks, services } from "@/lib/navigation";
+import { siteConfig } from "@/lib/seo";
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -154,13 +155,13 @@ export default function MobileNav() {
                 ))}
 
                 <li>
-                  <Link
-                    href="/login"
+                  <a
+                    href={siteConfig.platformUrl}
                     onClick={closeMenu}
                     className="block px-4 py-3 text-sm font-medium text-nav transition-colors duration-200 ease-out hover:bg-hover hover:text-foreground"
                   >
                     Login
-                  </Link>
+                  </a>
                 </li>
               </ul>
 

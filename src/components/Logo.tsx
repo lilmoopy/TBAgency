@@ -28,7 +28,7 @@ export default function Logo({ className = "", size = 40 }: LogoProps) {
       style={{ width: size, height: size }}
     >
       <Image
-        src="/tb-agency-logo.png"
+        src="/tba-logo-short.png"
         alt="TB Agency"
         fill
         priority

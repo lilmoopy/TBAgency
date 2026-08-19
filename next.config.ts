@@ -9,6 +9,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/login",
+        destination: "https://platform.tbagency.co",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

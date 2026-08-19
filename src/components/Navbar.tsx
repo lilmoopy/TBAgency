@@ -4,6 +4,7 @@ import MobileNav from "@/components/MobileNav";
 import ServicesDropdown from "@/components/ServicesDropdown";
 import ThemeToggle from "@/components/ThemeToggle";
 import { navLinks } from "@/lib/navigation";
+import { siteConfig } from "@/lib/seo";
 
 export default function Navbar() {
   return (
@@ -39,12 +40,12 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-2 sm:flex">
           <ThemeToggle />
-          <Link
-            href="/login"
+          <a
+            href={siteConfig.platformUrl}
             className="shrink-0 rounded-lg px-4 py-2 text-sm font-medium text-nav transition-colors hover:bg-hover hover:text-foreground"
           >
             Login
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="shrink-0 rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover"
